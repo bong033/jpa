@@ -6,11 +6,11 @@ import jakarta.validation.constraints.*;
 import java.util.List;
 
 @Entity
+@Table(name="customer", uniqueConstraints = {@UniqueConstraint(name = "email", columnNames = "email")})
 public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Min(value = 1, message = "ID must be a positive number")
     private Long id;
 
     @Column (nullable = false)
